@@ -1,0 +1,28 @@
+---
+undefined
+set: 1
+undefined
+---
+undefined
+set: 1
+e:foo
+---
+get
+2
+get
+2
+---
+get
+2
+set: 1
+e:foo
+---
+get
+2
+set: 1
+e:foo
+---
+get
+2
+set: 1
+e:foo

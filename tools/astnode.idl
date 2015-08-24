@@ -1,0 +1,249 @@
+/* Nabla JS - A small EMCAScript interpreter with straight-forward implementation.
+ * Copyright (C) 2014 Katsuya Iida. All rights reserved.
+ */
+
+// Programs
+
+interface Program <: Node {
+    type: "Program";
+    body: [Statement];
+}
+
+// Functions
+
+interface Function <: Node {
+    id: Identifier | null;
+    params: [Identifier];
+    body: BlockStatement;
+}
+
+// Statements
+
+interface Statement <: Node {}
+
+interface EmptyStatement <: Statement {
+  type: "EmptyStatement";
+}
+
+interface BlockStatement <: Statement {
+  type: "BlockStatement";
+  body: [Statement];
+}
+
+interface ExpressionStatement <: Statement {
+  type: "ExpressionStatement";
+  expression: Expression;
+}
+
+interface IfStatement <: Statement {
+  type: "IfStatement";
+  test: Expression;
+  consequent: Statement;
+  alternate: Statement | null;
+}
+
+interface LabeledStatement <: Statement {
+  type: "LabeledStatement";
+  label: Identifier;
+  body: Statement;
+}
+
+interface BreakStatement <: Statement {
+  type: "BreakStatement";
+  label: Identifier | null;
+}
+
+interface ContinueStatement <: Statement {
+  type: "ContinueStatement";
+  label: Identifier | null;
+}
+
+interface WithStatement <: Statement {
+  type: "WithStatement";
+  object: Expression;
+  body: Statement;
+}
+
+interface SwitchStatement <: Statement {
+  type: "SwitchStatement";
+  discriminant: Expression;
+  cases: [SwitchCase];
+}
+
+interface ReturnStatement <: Statement {
+  type: "ReturnStatement";
+  argument: Expression | null;
+}
+
+interface ThrowStatement <: Statement {
+  type: "ThrowStatement";
+  argument: Expression;
+}
+
+interface TryStatement <: Statement {
+  type: "TryStatement";
+  block: BlockStatement;
+  handler: CatchClause | null;
+  finalizer: BlockStatement | null;
+}
+
+interface WhileStatement <: Statement {
+  type: "WhileStatement";
+  test: Expression;
+  body: Statement;
+}
+
+interface DoWhileStatement <: Statement {
+  type: "DoWhileStatement";
+  body: Statement;
+  test: Expression;
+}
+
+interface ForStatement <: Statement {
+  type: "ForStatement";
+  init: Node | null;
+  test: Expression | null;
+  update: Expression | null;
+  body: Statement;
+}
+
+interface ForInStatement <: Statement {
+  type: "ForInStatement";
+  left: Node;
+  right: Expression;
+  body: Statement;
+}
+
+interface DebuggerStatement <: Statement {
+  type: "DebuggerStatement";
+}
+
+// Declarations
+
+interface Declaration <: Statement {}
+
+interface FunctionDeclaration <: Declaration {
+  type: "FunctionDeclaration";
+  function: Function;
+}
+
+interface VariableDeclaration <: Declaration {
+  type: "VariableDeclaration";
+  declarations: [VariableDeclarator];
+}
+
+interface VariableDeclarator <: Node {
+  type: "VariableDeclarator";
+  id: Identifier;
+  init: Expression | null;
+}
+
+// Expressions
+
+interface Expression <: Node {}
+
+interface ThisExpression <: Expression {
+  type: "ThisExpression";
+}
+
+interface ArrayExpression <: Expression {
+  type: "ArrayExpression";
+  elements: [Expression | null];
+}
+
+interface ObjectExpression <: Expression {
+  type: "ObjectExpression";
+  properties: [Property];
+}
+
+interface Property <: Node {
+  type: "Property";
+  key: Expression;
+  value: Expression;
+  kind: PropertyKind;
+}
+
+interface FunctionExpression <: Expression {
+  type: "FunctionExpression";
+  function: Function;
+}
+
+interface SequenceExpression <: Expression {
+  type: "SequenceExpression";
+  expressions: [Expression];
+}
+
+interface UnaryExpression <: Expression {
+  type: "UnaryExpression";
+  operator: UnaryOperator;
+  prefix: boolean;
+  argument: Expression;
+}
+
+interface BinaryExpression <: Expression {
+  type: "BinaryExpression";
+  operator: BinaryOperator;
+  left: Expression;
+  right: Expression;
+}
+
+interface AssignmentExpression <: Expression {
+  type: "AssignmentExpression";
+  operator: AssignmentOperator;
+  left: Expression;
+  right: Expression;
+}
+
+interface UpdateExpression <: Expression {
+  type: "UpdateExpression";
+  operator: UpdateOperator;
+  argument: Expression;
+  prefix: boolean;
+}
+
+interface LogicalExpression <: Expression {
+  type: "LogicalExpression";
+  operator: LogicalOperator;
+  left: Expression;
+  right: Expression;
+}
+
+interface ConditionalExpression <: Expression {
+  type: "ConditionalExpression";
+  test: Expression;
+  consequent: Expression;
+  alternate: Expression;
+}
+
+interface NewExpression <: Expression {
+  type: "NewExpression";
+  callee: Expression;
+  arguments: [Expression];
+}
+
+interface CallExpression <: Expression {
+  type: "CallExpression";
+  callee: Expression;
+  arguments: [Expression];
+}
+
+interface MemberExpression <: Expression {
+  type: "MemberExpression";
+  object: Expression;
+  property: Expression;
+  computed: boolean;
+}
+
+// Clauses
+
+interface SwitchCase <: Node {
+  type: "SwitchCase";
+  test: Expression | null;
+  consequent: [Statement];
+}
+
+interface CatchClause <: Node {
+  type: "CatchClause";
+  param: Identifier;
+  body: BlockStatement;
+}

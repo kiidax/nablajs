@@ -1,0 +1,13 @@
+Object.prototype = function () { [native code] }
+Object.prototype = [object Object]
+Object.prototype.toString = function () { [native code] }
+---
+o = [object Object]
+o.prototype = undefined
+o.toString = function () { [native code] }
+o.toString() = [object Object]
+---
+o = [MyClass]
+o.prototype = undefined
+o.toString = function () { ... }
+o.toString() = [MyClass]

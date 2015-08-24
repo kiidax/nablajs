@@ -1,0 +1,25 @@
+#!/bin/sh
+
+my_prefix=$(cd .. && pwd)/install
+
+export LANG=C
+export PATH=$my_prefix/bin:$PATH
+export LD_LIBRARY_PATH=$my_prefix/lib
+export PKG_CONFIG_PATH=$my_prefix/lib/pkgconfig
+export CXXFLAGS="-g -Wall -std=c++11"
+export CFLAGS="-g -Wall"
+
+if [ "$OSTYPE" = msys ] ; then
+	export GC_CFLAGS="-I$my_prefix/include"
+	export GC_LIBS="-L$my_prefix/lib -lgc"
+	export LIBPCRE16_CFLAGS="-I$my_prefix/include"
+	export LIBPCRE16_LIBS="-L$my_prefix/lib -lpcre16"
+fi
+
+if [ "$1" = "-i" ] ; then
+    export PS1="nabla$ "
+    exec sh -i
+fi
+
+autoreconf -Im4 --install --symlink
+./configure --prefix=$my_prefix

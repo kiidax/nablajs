@@ -1,0 +1,38 @@
+true
+false
+false
+true
+true
+true
+false
+false
+false
+true
+7
+3
+3
+7
+OK
+foo
+undefined
+3
+foo in o: true
+1 undefined undefined true true true
+bar in o: true
+2 undefined undefined true true true
+baz in o: false
+baz not in o
+foo in o: true
+undefined function () { ... } undefined undefined true true
+bar in o: true
+undefined undefined function () { ... } undefined true true
+baz in o: false
+baz not in o
+--- in
+true
+true
+false
+true
+true
+true
+true

@@ -1,0 +1,13 @@
+var Animal = function (name) { this.name = name; };
+cat = new Animal("Cat");
+dog = new Animal("Dog");
+none = new Animal;
+print(cat.name);
+print(dog.name);
+print(none.name);
+var zoo = { Animal: Animal };
+var mouse = new zoo.Animal("Mouse");
+print(mouse.name);
+var zoo2 = [ Animal ];
+var cow = new zoo2[0]("Cow");
+print(cow.name);

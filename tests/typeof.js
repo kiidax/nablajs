@@ -1,0 +1,10 @@
+print(typeof undefined);
+print(typeof null);
+print(typeof true);
+print(typeof false);
+print(typeof 2);
+print(typeof 3.14);
+print(typeof function () {});
+print(typeof {});
+print(typeof []);
+print(typeof /a/);

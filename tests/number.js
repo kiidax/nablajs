@@ -1,0 +1,10 @@
+var a = Number("123.3");
+print(typeof a);
+var a = Number();
+print(typeof a);
+var a = Number({});
+print(typeof a);
+a = new Number("123.3");
+print(typeof a);
+print(a.valueOf());
+print(typeof a.valueOf());

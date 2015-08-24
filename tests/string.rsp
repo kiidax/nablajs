@@ -1,0 +1,51 @@
+string
+string
+string
+object
+123.3
+string
+3
+97
+98
+99
+--- indexOf
+2
+-1
+-1
+---
+a,b,c,d,e,f
+,b,c,d,e,f
+a,b,c,d,e,
+12345678
+1234,5678
+12345678
+0
+1
+0
+0
+1
+0
+127,0,0,1
+--- substr
+34567
+3456789
+3456789
+3456789
+0123456789
+--- substring
+4567
+456789
+0123456789
+0123456789
+01234
+56789
+3456
+56789
+01234
+56789
+--- replace
+abc(ABC)defABCghi
+abc(ABC)defABC
+
+(ABC)abcABCdefABCghi
+abcdefABCghi

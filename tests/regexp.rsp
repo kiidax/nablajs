@@ -1,0 +1,8 @@
+/ab(cd)+e*f/
+ok/[a-z]+\(([a-z]+)\)/
+[a-z]+\(([a-z]+)\)
+false
+0
+false
+2:func(xyz):xyz
+OK

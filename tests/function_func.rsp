@@ -1,0 +1,10 @@
+foo,bar,baz
+foo,bar,undefined
+foo,undefined,undefined
+foo,bar,baz
+foo,bar,undefined
+foo,undefined,undefined
+foo,undefined,undefined
+foo,undefined,undefined
+foo,undefined,undefined
+[object Object],undefined,undefined

@@ -1,0 +1,30 @@
+true
+false
+foo
+bar
+true
+true
+false
+--- Object.keys
+foo,bar
+foo,bar
+1
+--- valueOf
+number:123
+number:3.14
+string:abc
+boolean:true
+boolean:false
+object:
+object:[object Object]
+function
+object:/abc/
+object:123
+object:3.14
+object:abc
+object:true
+object:false
+object:
+object:[object Object]
+function
+object:/abc/
